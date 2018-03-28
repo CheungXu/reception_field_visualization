@@ -3,9 +3,11 @@ A visual tool for CNN feature map pixel reception field: Constructing the net by
 
 ## Operator Supported
 - conv(input_, kernel_size=3) : Standred Convolution Layer.
-- dilated_conv(input_, rate=1) : Dilated Comvolution Layer.
+- dilated_conv(input_, rate=1) : Dilated Convolution Layer.
 
 ## Visualizer
+- rect_size: The Pixel num of Rect in Image.
+- line_width: The Width of Separator Lines.
 - visual(input_): Generate Visible Images and Show.
 - save(path): Save Visible Images in 'path'.
 - show(): Show Visible Images.
