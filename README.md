@@ -1,7 +1,7 @@
 # reception_field_visualization
 A visual tool for CNN feature map pixel reception field: Constructing the net by operators just like in deep-learning framewok. Then use  Visualizer to generate the reception-field image of layer you wanted. A simple example can be find in main function.
 
-## Operator Supported
+## Prerequisites
 - opencv
 
 ## Operator Supported
