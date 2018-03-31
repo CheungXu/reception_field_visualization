@@ -30,6 +30,7 @@ def dilated_conv(input_, rate = 1):
                                  kernel[(j+1)*rate-1][(i+1)*rate-1] = 1
            for i in range(kernel_size):
                       for j in range(kernel_size):
-                                 conv_rect = kernel[j][i] * input_
-                                 res[j:j+input_size, i:i+input_size] += conv_rect
+                                 if kernel[j][i] > 0:
+                                            conv_rect = kernel[j][i] * input_
+                                            res[j:j+input_size, i:i+input_size] += conv_rect
            return res

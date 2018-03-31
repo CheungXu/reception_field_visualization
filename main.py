@@ -13,26 +13,31 @@ def compare(h1,h2):
            cv2.imwrite('cmp.jpg',res)
            return res
 
-if __name__=='__main__':
-           v1 = Visualizer(20)
+def convs(num):
            h0 = np.array([[1]])
-           h1 = dilated_conv(h0, rate=2)
-           h2 = dilated_conv(h1, rate=4)
-           h3 = conv(h2,kernel_size=3)
-           h41 = conv(h3,kernel_size=3)
-           v1.visual(h41)
-           v1.save('conv.jpg')
+           for i in range(num):
+                      tmp = conv(h0)
+                      h0 = tmp
+                      v = Visualizer(20)
+                      v.visual(tmp)
+                      v.save('.\\conv\\'+str(i)+'.jpg')
+                      print 'conv: ',v.size()
+def dilated_convs(num):
+           #r = [1,1,2,2,4,4,2,2,1,1]
+           r = [1,2,4,8,16,32,64,128,256]
+           h0 = np.array([[1]])
+           for i in range(num):
+                      #n = i%3
+                      tmp = dilated_conv(h0,rate=r[i])
+                      h0 = tmp
+                      v = Visualizer(20)
+                      v.visual(tmp)
+                      v.save('.\\dilated_conv\\z_'+str(i+1)+'.jpg')
+                      print 'dconv: ', v.size()
 
-           v2 = Visualizer(20)
-           h1 = conv(h0,kernel_size=3)
-           h2 = dilated_conv(h1, rate=2)
-           h3 = conv(h2,kernel_size=3)
-           h42 = dilated_conv(h3, rate=4)
-           v2.visual(h42)
-           v2.save('dilate_conv.jpg')
 
-           v3 = Visualizer(20)
-           res = compare(h41,h42)
-           v3.visual(res)
-           v3.save('cmpr.jpg')
+            
+if __name__=='__main__':
+           #convs(10)
+           dilated_convs(10)
 
