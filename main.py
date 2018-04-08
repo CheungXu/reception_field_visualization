@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import numpy as np
 import cv2
 from visual import Visualizer 
@@ -21,7 +23,7 @@ def convs(num):
                       tmp = conv(h0,stride=1)
                       h0 = tmp
                       v = Visualizer(20)
-                      v.visual_pixel(tmp)
+                      v.visual(tmp)
                       v.save('.\\conv\\'+str(i)+'.jpg')
                       print('conv: ',v.size())
                       
@@ -45,14 +47,17 @@ def my_net():
            h0['stride'] = 1
            h1 = conv(h0,kernel=5)
            net.append(h1)
+           
            h2 = conv(h1,stride=2)
            net.append(h2)
            h3 = conv(h2)
            net.append(h3)
+           
            h4 = conv(h3,stride=2)
            net.append(h4)
            h5 = conv(h4)
-           net.append(h5)           
+           net.append(h5)
+           
            h6 = conv(h5,stride=2)
            net.append(h6)
            h7 = dilated_conv(h6,rate=2)
@@ -86,11 +91,11 @@ def my_net():
            for i in range(len(net)):
                       v = Visualizer(1)
                       v.visual_pixel(net[i])
-                      v.save('.\\net\\'+str(i+1)+'.jpg')
+                      v.save('.\\net2\\'+str(i+1)+'.jpg')
                       print('con: '+str(i), v.size())
 
 if __name__=='__main__':
            #convs(10)
-           convs(10)
-           #my_net()
+           #convs(10)
+           my_net()
 
