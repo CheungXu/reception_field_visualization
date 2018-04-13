@@ -58,8 +58,7 @@ class Visualizer(object):
                                             #self.img[i][j][1] = color[1]
                                             #self.img[i][j][2] = color[2]                                            
                       
-           def visual(self,image):
-                      input_ = image['data']
+          def visual(self,input_):
                       self.img_size = input_.shape[0]
                       size = self.img_size * self.rect_size 
                       self.img = np.zeros([size,size,3]).astype(np.uint8)
@@ -78,6 +77,22 @@ class Visualizer(object):
                                  if color[0] != 0:
                                             color_dict[color[0]] = num * color_step
                                             num += 1
+                      color_max=0
+                      color_min=1280
+                      for key in color_dict:
+                          if color_dict[key] > color_max:
+                              color_max = color_dict[key]
+                          if color_dict[key] < color_min:
+                              color_min = color_dict[key]
+
+                      if len(color_dict)==2:
+                          for key in color_dict:
+                              color_dict[key] = 640
+                      else:
+                          for key in color_dict:
+                              temp = (color_dict[key]-color_min)/(color_max-color_min)*1150
+                              color_dict[key] = temp
+
                       for i in range(self.img_size):
                                  for j in range(self.img_size):
                                             self.draw_rect(i,j,fill_color=self.color_index(color_dict[input_[i][j]]))
