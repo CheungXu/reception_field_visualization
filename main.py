@@ -20,7 +20,7 @@ def convs(num):
            h0['data'] = np.array([[1]])
            h0['stride'] = 1
            for i in range(num):
-                      tmp = conv(h0,stride=1)
+                      tmp = conv(h0,stride=2)
                       h0 = tmp
                       v = Visualizer(20)
                       v.visual(tmp)
@@ -28,16 +28,18 @@ def convs(num):
                       print('conv: ',v.size())
                       
 def dilated_convs(num):
-           #r = [1,1,2,2,4,4,2,2,1,1]
-           r = [1,2,4,8,16,32,64,128,256]
-           h0 = np.array([[1]])
+           r = [1,2,2,2,2,2,2,2,2,2]
+           #r = [1,2,4,8,16,32,64,128,256]
+           h0 = {}
+           h0['data'] = np.array([[1]])
+           h0['stride'] = 1
            for i in range(num):
                       #n = i%3
                       tmp = dilated_conv(h0,rate=r[i])
                       h0 = tmp
                       v = Visualizer(20)
                       v.visual(tmp)
-                      v.save('.\\dilated_conv\\z_'+str(i+1)+'.jpg')
+                      v.save('.\\dilated_conv\\'+str(i+1)+'.jpg')
                       print('dconv: ', v.size())
 
 def my_net():
@@ -95,7 +97,7 @@ def my_net():
                       print('con: '+str(i), v.size())
 
 if __name__=='__main__':
-           #convs(10)
-           #convs(10)
-           my_net()
+             dilated_convs(10)
+             convs(10)
+             #my_net()
 

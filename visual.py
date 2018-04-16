@@ -1,4 +1,5 @@
 from __future__ import print_function
+from __future__ import division
 
 import numpy as np
 import cv2
@@ -58,9 +59,9 @@ class Visualizer(object):
                                             self.img.itemset((i,j,2),color[2])
                                             #self.img[i][j][0] = color[0]
                                             #self.img[i][j][1] = color[1]
-                                            #self.img[i][j][2] = color[2]                                            
-                      
-          def visual(self,input_):
+                                            #self.img[i][j][2] = color[2]
+           def visual(self,image):
+                      input_ = image['data']
                       self.img_size = input_.shape[0]
                       size = self.img_size * self.rect_size 
                       self.img = np.zeros([size,size,3]).astype(np.uint8)
@@ -70,7 +71,6 @@ class Visualizer(object):
                                  for j in range(self.img_size):
                                             colors[input_[i][j]] = 1
                       color_num = len(colors.keys())
-                      print('color',color_num)
                       color_step = int(1280/(color_num+1))
                       colors = sorted(colors.items(), key=lambda item:item[0])
                       color_dict = {0:0}
@@ -86,13 +86,13 @@ class Visualizer(object):
                               color_max = color_dict[key]
                           if color_dict[key] < color_min:
                               color_min = color_dict[key]
-
+                              
                       if len(color_dict)==2:
-                          for key in color_dict:
+                          for key in color_dict.keys():
                               color_dict[key] = 640
                       else:
-                          for key in color_dict:
-                              temp = (color_dict[key]-color_min)/(color_max-color_min)*1150
+                          for key in color_dict.keys():
+                              temp = int(float(color_dict[key]-color_min)/float(color_max-color_min)*1150)
                               color_dict[key] = temp
 
                       for i in range(self.img_size):
