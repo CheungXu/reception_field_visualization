@@ -67,6 +67,6 @@ def example():
 
 if __name__=='__main__':
              dilated_convs(10)
-             convs(10)
+             #convs(10)
              #example()
 

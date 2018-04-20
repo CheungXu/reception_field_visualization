@@ -29,14 +29,14 @@ def dilated_conv(image, rate = 1):
                       return []
            input_ = image['data']
            input_size = input_.shape[0]
-           kernel = 4 * rate - 1
+           kernel = 2 * rate + 1
            padding = (kernel - 1)/2
            new_size = input_size + padding * 2
            kernel_mat = np.zeros([kernel,kernel])
            res = np.zeros([new_size,new_size])
            for i in range(3):
                       for j in range(3):
-                                 kernel_mat[(j+1)*rate-1][(i+1)*rate-1] = 1
+                                 kernel_mat[j*rate][i*rate] = 1
            for i in range(kernel):
                       for j in range(kernel):
                                  if kernel_mat[j][i] > 0:
