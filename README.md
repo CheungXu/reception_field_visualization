@@ -18,9 +18,9 @@ A visual tool for CNN feature map pixel reception field: Constructing the net by
 
 # Visualization Result
 ## Convolution Layer (kernel = 3, stride = 1)
-![](conv/0.jpg)      |  ![](conv/1.jpg)       |  ![](conv/2.jpg)       |  ![](conv/3.jpg)      |  ![](conv/4.jpg)  
-:-------------------------:|:-------------------------:
-Layer 1 |  Layer 2 |  Layer 3 |  Layer 4 |  Layer 5
+![](conv/0.jpg)      |  ![](conv/1.jpg)       |  ![](conv/2.jpg)       |  ![](conv/3.jpg)      |  ![](conv/4.jpg)       |  ![](conv/5.jpg) 
+## Dilated Convolution Layer(rate = [1,2,5,1,2,7])
+![](dconv/1.jpg)      |  ![](dconv/2.jpg)       |  ![](dconv/3.jpg)       |  ![](dconv/4.jpg)      |  ![](dconv/5.jpg)       |  ![](dconv/6.jpg) 
 
 # TODO
 - User-defined dilated_conv kernel size.
