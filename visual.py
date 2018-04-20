@@ -71,6 +71,7 @@ class Visualizer(object):
                                  for j in range(self.img_size):
                                             colors[input_[i][j]] = 1
                       color_num = len(colors.keys())
+                      print(color_num)
                       color_step = int(1280/(color_num+1))
                       colors = sorted(colors.items(), key=lambda item:item[0])
                       color_dict = {0:0}
