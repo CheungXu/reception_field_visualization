@@ -3,7 +3,7 @@ A visual tool for CNN feature map pixel reception field: Constructing the net by
 
 ## Prerequisites
 - Python
-- OpenCV
+- OpenCV (pip install opencv-python)
 
 ## Operator Supported
 - conv(input_, kernel=3, stride=1) : Standred Convolution Layer.
