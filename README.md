@@ -35,5 +35,6 @@ A visual tool for CNN feature map pixel reception field: Constructing the net by
 
 # TODO
 - User-defined dilated_conv kernel size.
+- Wider Painting Color Range.
 - Real Reception_field Size Compute API.
 - Real Pixel Visual Image.(Bug fix)
