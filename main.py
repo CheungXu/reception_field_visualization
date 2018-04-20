@@ -18,7 +18,7 @@ def convs(num):
                                  
            #Stack Conv Layers and visual&save
            for i in range(num):
-                      tmp = conv(h0,stride=2)
+                      tmp = conv(h0,kernel=3,stride=1)
                       h0 = tmp
                       v = Visualizer(20)
                       v.visual(tmp)
@@ -29,6 +29,7 @@ def dilated_convs(num):
            #Create Path  
            if not os.path.exists(os.path.join('.','dconv')):
                         os.mkdir(os.path.join('.','dconv'))
+                        
            #Dilate Rate of Each Layer
            r = [1,2,5,1,2,7,1,2,9,2,1]
            
@@ -67,5 +68,5 @@ def example():
 if __name__=='__main__':
              dilated_convs(10)
              convs(10)
-             example()
+             #example()
 
