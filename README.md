@@ -2,7 +2,8 @@
 A visual tool for CNN feature map pixel reception field: Constructing the net by operators just like in deep-learning framewok. Then use  Visualizer to generate the reception-field image of layer you wanted. A simple example can be find in main function.
 
 ## Prerequisites
-- opencv
+- Python
+- OpenCV
 
 ## Operator Supported
 - conv(input_, kernel=3, stride=1) : Standred Convolution Layer.
@@ -24,7 +25,7 @@ A visual tool for CNN feature map pixel reception field: Constructing the net by
 ![](conv/3.jpg)  
 ![](conv/4.jpg)  
 ![](conv/5.jpg)   
-## Dilated Convolution Layer(rate = [1,2,5,1,2,7])
+## Dilated Convolution Layer (rate = [1, 2, 5, 1, 2, 7])
 ![](dconv/1.jpg)  
 ![](dconv/2.jpg)  
 ![](dconv/3.jpg)  
