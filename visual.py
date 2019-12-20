@@ -31,8 +31,8 @@ class Visualizer(object):
                                  print("Color Error!")
                                  return [255,255,255]
                       
-           def visual_pixel(self,image):
-                      input_ = image['data']
+           def visual_pixel(self, feat_map):
+                      input_ = feat_map.data
                       self.img_size = input_.shape[0]
                       size = self.img_size
                       self.img = np.ones([size,size,3]).astype(np.uint8) * 255
@@ -41,7 +41,7 @@ class Visualizer(object):
                                  for j in range(self.img_size):
                                             colors[input_[i][j]] = 1
                       color_num = len(colors.keys())
-                      print('color',color_num)
+                      print('Different Color Num: ',color_num)
                       color_step = int(1280/(color_num+1))
                       colors = sorted(colors.items(), key=lambda item:item[0])
                       color_dict = {0:0}
@@ -50,7 +50,7 @@ class Visualizer(object):
                                  if color[0] != 0:
                                             color_dict[color[0]] = num * color_step
                                             num += 1
-                      print('COLOR NUM', len(color_dict.keys()))
+                      print('Different Color Num: ', len(color_dict.keys()))
                       for i in range(self.img_size):
                                  for j in range(self.img_size):
                                             color = self.color_index(color_dict[input_[i][j]])
@@ -60,8 +60,8 @@ class Visualizer(object):
                                             #self.img[i][j][0] = color[0]
                                             #self.img[i][j][1] = color[1]
                                             #self.img[i][j][2] = color[2]
-           def visual(self,image):
-                      input_ = image['data']
+           def visual(self, feat_map):
+                      input_ = feat_map.data
                       self.img_size = input_.shape[0]
                       size = self.img_size * self.rect_size 
                       self.img = np.zeros([size,size,3]).astype(np.uint8)
@@ -71,7 +71,7 @@ class Visualizer(object):
                                  for j in range(self.img_size):
                                             colors[input_[i][j]] = 1
                       color_num = len(colors.keys())
-                      print(color_num)
+                      print('Different Color Num: ', color_num)
                       color_step = int(1280/(color_num+1))
                       colors = sorted(colors.items(), key=lambda item:item[0])
                       color_dict = {0:0}
