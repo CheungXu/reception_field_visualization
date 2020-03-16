@@ -1,9 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
 from __future__ import print_function
 
 import numpy as np
-import cv2,os
-from visual import Visualizer 
-#from ops import conv, dilated_conv, deconv
+import cv2
+
+from visual import Visualizer
 from ops import *
 
 def convs(num):

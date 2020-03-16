@@ -58,8 +58,6 @@ class kernel_conv(object):
         res = feature_map(res, self.stride)
         return res
 
-
-
 def conv(image, kernel = 3, stride = 1):
            if kernel % 2 == 0:
                       print('Wrong Kernel Size!')
